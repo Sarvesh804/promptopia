@@ -29,7 +29,9 @@ const Feed = () => {
   try {
     console.log("Fetching posts...");
 
-    const response = await fetch("/api/prompt");
+    const response = await fetch("/api/prompt",{
+      next: { revalidate: 10 },
+    });
     
     if (!response.ok) {
       console.log("Fetch failed with status:", response);
