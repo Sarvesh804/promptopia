@@ -32,7 +32,7 @@ const Feed = () => {
     const response = await fetch("/api/prompt");
     
     if (!response.ok) {
-      console.log("Fetch failed with status:", response.status);
+      console.log("Fetch failed with status:", response);
       return;
     }
 
