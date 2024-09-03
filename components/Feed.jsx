@@ -50,7 +50,7 @@ const Feed = () => {
       }
     };
     
-    fetchPosts();
+    if (session?.user.id) fetchPosts();
   }, [session?.user.id]);
 
   const filterPrompts = (searchtext) => {
