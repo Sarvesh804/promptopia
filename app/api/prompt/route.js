@@ -14,6 +14,10 @@ export const GET = async (request) => {
             },
         });
     } catch (error) {
-        return new Response("Failed to fetch all prompts",error, { status: 500 })
+        return new Response(JSON.stringify({ message: "Failed to fetch all prompts", error: error.message }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' }
+          });
+          
     }
 } 
