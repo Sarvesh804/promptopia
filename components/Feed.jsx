@@ -28,8 +28,8 @@ const Feed = () => {
   const fetchPosts = async () => {
   try {
     console.log("Fetching posts...");
-
     const response = await fetch("/api/prompt");
+
     
     if (!response.ok) {
       console.log("Fetch failed with status:", response);
@@ -48,6 +48,27 @@ const Feed = () => {
 
   useEffect(() => {
     console.log('Fetching posts...');
+
+    const fetchPosts = async () => {
+      try {
+        console.log("Fetching posts...");
+        const response = await fetch(`/api/prompt`);
+    
+        
+        if (!response.ok) {
+          console.log("Fetch failed with status:", response);
+          return;
+        }
+    
+        const data = await response.json();
+        console.log("Fetched posts data:", data);
+    
+        setAllPosts(data);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+
     fetchPosts();
   }, []);
 
