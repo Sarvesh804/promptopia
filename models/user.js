@@ -23,4 +23,5 @@ try {
   User = models.User;
 }
 
+console.log(User);
 export default User;
