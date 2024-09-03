@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import { useState, useEffect } from "react"
 
 import PromptCard from "./PromptCard"
@@ -25,26 +25,7 @@ const Feed = () => {
   const [searchTimeout, setSearchTimeout] = useState(null);
   const [searchedResults, setSearchedResults] = useState([]);
 
-  const fetchPosts = async () => {
-  try {
-    console.log("Fetching posts...");
-    const response = await fetch("/api/prompt");
-
-    
-    if (!response.ok) {
-      console.log("Fetch failed with status:", response);
-      return;
-    }
-
-    const data = await response.json();
-    console.log("Fetched posts data:", data);
-
-    setAllPosts(data);
-  } catch (error) {
-    console.error("Error fetching posts:", error);
-  }
-};
-
+  
 
   useEffect(() => {
     console.log('Fetching posts...');
@@ -68,7 +49,7 @@ const Feed = () => {
         console.error("Error fetching posts:", error);
       }
     };
-
+    
     fetchPosts();
   }, []);
 
