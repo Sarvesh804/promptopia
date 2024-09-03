@@ -1,5 +1,6 @@
 import Prompt from "@models/prompt";
 import { connectToDB } from "@utils/database";
+import User from "@models/user";
 
 export const POST = async (request) => {
     const { userId, prompt, tag } = await request.json();
