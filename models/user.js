@@ -15,7 +15,12 @@ const UserSchema = new Schema({
     type: String,
   }
 });
+let User;
 
-const User = models.User || model("User", UserSchema);
+try {
+  User = model("User", UserSchema);
+} catch(error) {
+  User = models.User;
+}
 
 export default User;
